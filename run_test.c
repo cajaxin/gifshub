@@ -5,7 +5,7 @@
 int main() {
      int result;
 
-     run("./run", &result);
+     run("ls", &result);
 
      return 0;
 }
