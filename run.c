@@ -8,15 +8,19 @@ int run (char* command, int *result) {
 	pid_t pid;
 	int res;
 	pid = fork();
-	
+	printf("I am the pid: %d\n", pid);
 	if (pid == 0) {
 		*result = system(command);
-		printf("%d\n", getpid());
+		printf("%s\n", result);
+	//	printf("%d\n", getpid());
 		return getpid();
-	} else if (pid < 0) 
+	} else if (pid < 0) {
+		wait(&command); //verificar  tentar usar pipe
+		printf("%s\n", "pid < 0");
 		return 0; //finish process
-
+	}
 	if (result != NULL) {
+		printf("%s\n", "returning pid");
 		return pid;
 	} else 
 		return -1;

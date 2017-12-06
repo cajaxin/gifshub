@@ -1,0 +1,15 @@
+1. Função run
+
+Implemente a função a seguir de modo a atender as especificações. 
+
+int run (char* command, int *result)
+
+Quando invocada pelo processo, a função causa a execução do comando command em um novo subprocesso.  O processo chamador é bloqueado até que o subprocesso termine.  Se o argumento result é não nulo, o valor de retorno do subprocesso é armazenado nessa variável.  
+
+O argumento command é uma string na forma “program arg1 arg2… argN” onde a primeira substring é o programa a ser executado e arg1, arg2, … argN são argumentos a serem passados ao programa como em uma linha de comando shell. As substrings são separadas por combinações de espaços e caracteres de tabulação. O máximo valor de N é dado por MAX_ARGS.
+
+Se a chamada tem sucesso como descrito (command é executado e termina normalmente), a função retorna o PID do subprocesso. Se a chamada falha porque o subprocesso não pode ser criado, a função retorna 0 e o valor armazenado em 'result' é indefinido. Se a chamada tem sucesso, mas a execução do comando falha, então o valor -1 é retornado. Uma falha acontece se o programa não pode ser executado (arquivo não encontrado, permissões insuficientes etc.) ou o subprocesso termina anormalmente de modo prematuro (interrompido por um sinal).  Nesse caso, o valor armazenado em result é 0 ou -1, respectivamente. 
+
+Implemente a função em um arquivo denominado run.c e forneça um programa de teste run_test.c que exemplifique o uso da função.  O programa de teste deve ser compilado com o comando
+
+    gcc <flags> run_test.c run.c -o run_test
