@@ -1,8 +1,9 @@
+#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <unistd.h>
 #include <sys/types.h>
+#include <sys/wait.h>
 #include <stdarg.h>
 
 int pipeline(FILE *fpin, FILE *fpout, const char *cmd1, cost char *cmd2, ...) {
@@ -27,7 +28,7 @@ int pipeline(FILE *fpin, FILE *fpout, const char *cmd1, cost char *cmd2, ...) {
 	}
 	va_end(cmds);
 	/* agora a gente separa os homens dos meninos, digo, agora a gente começa a execução dos comandos */
-
+	
 
 	return 0;
 }
